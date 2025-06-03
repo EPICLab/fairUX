@@ -1,0 +1,8 @@
+inclusivity-checker/
+my-inclusivity-checker/
+__pycache__/
+cache/rules_analysis/*
+cache/screenshot_analysis/*
+templates/*.pdf
+app/
+.DS_Store

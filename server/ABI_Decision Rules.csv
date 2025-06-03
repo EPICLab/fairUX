@@ -1,0 +1,22 @@
+Rule ID,Rule Name,Facet,Description
+DR1,"Task entry points must display all prerequisites (time estimates, system requirements, permissions needed) before any action buttons","Information Processing, Risk Aversion","Violation: Upload button with requirements shown after clicking
+Solution: Prerequisites listed before upload button: Time needed: 10 mins, Requires: Admin access, Supported formats: PDF"
+DR2,"Each task description must contain four components: what (definition), why (purpose), how (steps), when (timing/schedule)","Information Processing, Learning Style","Violation: ""Submit your documents""
+Solution: What: Submit identity proof, Why: Required for verification, How: Upload passport or license and When: Within 7 days"
+DR3,"When multiple methods exist for a task, each method must have its effort level and benefits clearly stated like Time required, Effort level, Technical expertise needed, Security implications, etc","Risk Aversion, Motivations","Solution:
+Method 1: Quick setup (5 minutes, basic features)
+Method 2: Advanced setup (30 minutes, all features)"
+DR4,"Multi-step processes must maintain a progress tracker which shows the current position, total steps, and next action","Learning Style, Information Processing",Solution: Step 2 of 5: Enter Personal Details (Next: Upload Documents)
+DR5,"When multiple tasks are presented, their dependencies must be explicitly shown like visual connection lines, prerequisite flags, blocking indicators, Timeline connections etc","Information Processing, Learning Style",Solution: Complete profile setup (required before accessing home/dashboard)
+DR6,The same concept must be referred to consistently using the same term throughout the interface,"Learning Style, Computer Self-Efficacy","Violation: Using ""profile"" in one place and ""account"" in another for same concept
+Violation: Using ""submit"" on one form but ""send"" on another"
+DR7,"Error messages must include three components: (1) what went wrong, (2) why it happened, and (3) how to fix it","Computer Self-Efficacy, Risk Aversion","Violation : ""Login failed"" (but why and how)
+Solution: ""Login failed because the password is incorrect. 
+Please try again or click 'Forgot Password' to reset."""
+DR8,Potentially risky actions must clearly indicate consequences and recovery options before execution,"Risk Aversion, Information Processing","Violation: Delete button without consequence warning
+Solution: Warning: You cannot go back once it's deleted "
+DR9,Complex or dense content should be layered with clear expansion mechanisms for additional details. ,"Information Processing, Motivations","Violation : Presenting all information at once without layering
+Solution: Basic overview or important info with expandable sections for details"
+DR10,Post-action feedback must include clear indication of next possible steps,"Computer Self-Efficacy, Learning Style",Profile updated successfully. View your profile / continue editing / Go to Home.
+DR11,Any request for user data must be accompanied by a clear explanation of its purpose and usage,"Risk Aversion, Computer Self-Efficacy","Violation : A form input asking phone number
+Solution: A question mark icon with a tooltip saying ""Required for two-factor authentication to secure your account"""

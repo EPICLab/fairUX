@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inclusivity Bug Report</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @page {
+            margin: 0;
+            size: A4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #1E293B;
+            background: white;
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 100%;
+        }
+
+        /* Header Section */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #E2E8F0;
+        }
+
+        .header-content {
+            flex-grow: 1;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #0F172A;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.025em;
+        }
+
+        .date {
+            font-size: 14px;
+            color: #64748B;
+        }
+
+        .logo {
+            width: 100px;
+            height: auto;
+            margin-left: 20px;
+            object-fit: contain;
+        }
+
+        .analysis-section {
+            break-inside: auto
+        }
+
+        /* Screenshot Section */
+        .screenshot-section {
+            background: #F8FAFC;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            margin-bottom: 1.5rem;
+            page-break-inside: avoid;
+        }
+
+        .screenshot-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 1rem;
+        }
+
+        .screenshot-content {
+            text-align: center;
+            background: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid #E2E8F0;
+        }
+
+        .screenshot-content img {
+            max-width: 100%;
+            height: auto;
+            max-height: 400px; /* Limit image height */
+            object-fit: contain;
+            border-radius: 0.5rem;
+        }
+
+        /* Rule Card */
+        .rule-card {
+            background: white;
+            border: 1px solid #E2E8F0;
+            border-radius: 0.75rem;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+
+        .rule-header {
+            background: #F8FAFC;
+            padding: 1rem;
+            border-bottom: 1px solid #E2E8F0;
+        }
+
+        .rule-header-content {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .rule-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #0F172A;
+            flex-grow: 1;
+        }
+
+        .badge {
+            padding: 2px 8px;
+            border-radius: 9999px;
+            font-size: 12px;
+            font-weight: 500;
+            border: 1px solid;
+        }
+
+        .facet-badge {
+            background-color: #E0F2FE;
+            color: #0369A1;
+            border-color: #BAE6FD;
+        }
+
+        /* Issues Container */
+        .issues-container {
+            padding: 1rem;
+        }
+
+        .issue-group {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #E2E8F0;
+        }
+
+        .issue-group:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .issue-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 0.25rem;
+        }
+
+        .issue-content {
+            font-size: 12px;
+            color: #334155;
+            margin-bottom: 0.75rem;
+            background: #F8FAFC;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+
+            .screenshot-section, .rule-card {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <h1 class="title">Inclusivity Bug Report</h1>
+                <div class="date">{{ date }}</div>
+            </div>
+            {% if logo_base64 %}
+            <img src="{{ logo_base64 }}" alt="Logo" class="logo">
+            {% endif %}
+        </div>
+
+        {% for result in results %}
+        <div class="analysis-section">
+            <!-- Screenshot Section -->
+            <div class="screenshot-section">
+                <div class="screenshot-title">
+                    Screenshot - {{ format_name(result.screenshot) }}
+                </div>
+                <div class="screenshot-content">
+                    {% if result.screenshot_base64 %}
+                    <img src="{{ result.screenshot_base64 }}" alt="UI Screenshot">
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Rules and Issues -->
+            {% for violation in result.violations %}
+            {% set rule = rules|selectattr("Rule ID", "equalto", violation.rule_id)|first %}
+            <div class="rule-card">
+                <div class="rule-header">
+                    <div class="rule-header-content">
+                        <div class="rule-title">{{ rule["Rule Name"] }}</div>
+                        <div class="badge facet-badge">{{ rule["Facet"] }}</div>
+                    </div>
+                </div>
+
+                <div class="issues-container">
+                    {% for bug in violation.bugs %}
+                    <div class="issue-group">
+                        <div class="issue-label">Location</div>
+                        <div class="issue-content">{{ bug.location }}</div>
+
+                        <div class="issue-label" style="color: #DC2626;">Inclusivity Bug</div>
+                        <div class="issue-content">{{ bug.description }}</div>
+
+                        <div class="issue-label" style="color: #65A30D;">Potential Fixes (Recommendation)</div>
+                        <div class="issue-content">{{ bug.recommendation }}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
