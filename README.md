@@ -1,7 +1,6 @@
 # fairUX
 
-**fairUX** is a system that detects gender-inclusivity bugs in user interfaces using AI-powered reasoning grounded in the GenderMag method.
-
+**fairUX** is a system that detects cognitive-inclusivity bugs in user interfaces using AI-powered reasoning grounded in Inclusive Design Research
 
 
 ## 🖥️ Server Setup
