@@ -85,7 +85,7 @@ class InclusivityPipeline:
         """Generate comprehensive analysis for all rules at once"""
         try:
             rules_hash = create_hash(*[
-                (rule.get('Rule Name', ''), rule.get('Description', ''), rule.get('Facet', ''))
+                (rule.get('Rule Name', ''), rule.get('Description', ''), rule.get('Facet', ''), rule.get('Bug_Categories', ''))
                 for rule in rules
             ])
             cached_analysis = self.cache_client.get_cached_data(rules_hash, 'rules_analysis')
@@ -99,14 +99,16 @@ class InclusivityPipeline:
             For each rule, provide:
             1. What the rule checks for
             2. Common inclusivity bugs related to this rule
-            3. How to identify violations
-            4. Impact on user experience
+            3. Bug categories associated with this decision rule
+            4. How to identify violations
+            5. Impact on user experience
             
             Return a JSON array where each object has:
             - rule_id: ID of the rule
             - analysis: {{
                 description: brief description,
                 common_bugs: list of common issues,
+                bug_categories: list of bug categories,
                 identification: how to spot violations,
                 impact: user experience impact
             }}
@@ -130,6 +132,7 @@ class InclusivityPipeline:
                             'Missing system requirements',
                             'Unclear time commitments',
                             'Scattered prerequisite information'],
+                        'bug_categories':['Lack of guidance about task', 'Privacy concerns'],
                         'identification':'Check if all requirements are visible before any interactive elements. Look for hidden information that only appears after user interaction.',
                         'impact':'Reduces user frustration and abandonment by setting clear expectations upfront. Particularly important for users with anxiety or time constraints.'
                     }
@@ -163,6 +166,7 @@ class InclusivityPipeline:
             For each rule that has violations in the screenshot, provide:
             - rule_id: The ID of the violated rule
             - detected_bugs: List of specific issues found
+            - bug_categories: Applicable bug categories in the associated rule that the detected bugs fall into
             - locations: Where in the UI each issue occurs
             - severity: Impact level (High/Medium/Low)
             - recommendations: How to fix each issue
@@ -176,6 +180,7 @@ class InclusivityPipeline:
                         "bugs": [
                             {{
                                 "description": "Issue description",
+                                "categories": "Bug categories specifically corresponding to the detected issue",
                                 "location": "Where in UI",
                                 "severity": "High/Medium/Low",
                                 "recommendation": "How to fix"
@@ -261,10 +266,11 @@ class InclusivityPipeline:
 
                 # Create table for bugs
                 if violation.get('bugs'):
-                    data = [['Issue', 'Location', 'Severity', 'Recommendation']]
+                    data = [['Issue', 'Categories', 'Location', 'Severity', 'Recommendation']]
                     for bug in violation['bugs']:
                         data.append([
                             bug['description'],
+                            bug['categories'],
                             bug['location'],
                             bug['severity'],
                             bug['recommendation']
@@ -327,18 +333,21 @@ class InclusivityPipeline:
                     "bugs": [
                     {
                         "description": "Error message lacks specific resolution steps for the user",
+                        "categories": "Lack of guidance about task",
                         "location": "Error message text: 'It's taking longer than expected to share. There could be a problem with the connection.'",
                         "severity": "High",
                         "recommendation": "Add specific troubleshooting steps like: 'Please check your internet connection and try again. If the problem persists, you can: 1) Switch to a different network 2) Try sharing later 3) Contact support if issues continue'"
                     },
                     {
                         "description": "Vague error message that creates uncertainty",
+                        "categories": "Lack of guidance about task",
                         "location": "Error message using phrases 'could be' and 'taking longer than expected'",
                         "severity": "Medium",
                         "recommendation": "Make the message more definitive and specific, e.g.: 'Unable to share due to slow or unstable internet connection' followed by clear next steps"
                     },
                     {
                         "description": "Single 'Cancel' action limits user options",
+                        "categories": "Lack of guidance about task",
                         "location": "Bottom button showing only 'Cancel' option",
                         "severity": "Medium",
                         "recommendation": "Add multiple action options like 'Retry', 'Cancel', and 'Get Help' to give users more control over resolving the error"
@@ -350,13 +359,13 @@ class InclusivityPipeline:
             ] '''
             #self.generate_report(rules, results, output_path)
 
-            # Filter out low severity bugs
-            for result in results:
-                for violation in result.get('violations', []):
-                    # Only keep bugs with High or Medium severity
-                    if 'bugs' in violation:
-                        violation['bugs'] = [bug for bug in violation['bugs'] 
-                                            if bug.get('severity', '').lower() in ['high', 'medium']]
+            # # Filter out low severity bugs
+            # for result in results:
+            #     for violation in result.get('violations', []):
+            #         # Only keep bugs with High or Medium severity
+            #         if 'bugs' in violation:
+            #             violation['bugs'] = [bug for bug in violation['bugs'] 
+            #                                 if bug.get('severity', '').lower() in ['high', 'medium']]
 
             generate_inclusivity_report(rules, results, output_path)
             return results
