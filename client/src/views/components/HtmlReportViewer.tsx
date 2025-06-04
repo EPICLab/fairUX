@@ -417,8 +417,8 @@ const HtmlReportViewer: React.FC<HtmlReportViewerProps> = ({ report, rules = [] 
                                 {bug.location}
                               </p>
                             </div>
-
-                            {/* Issue */}
+                            
+                            {/* Bug categories */}
                             <div style={{ marginBottom: '1rem' }}>
                               <h4 style={{
                                 fontSize: '14px',
@@ -428,7 +428,7 @@ const HtmlReportViewer: React.FC<HtmlReportViewerProps> = ({ report, rules = [] 
                                 textTransform: 'uppercase',
                                 letterSpacing: '0.5px'
                               }}>
-                                Inclusivity Bug
+                                Inclusivity Bug Category
                               </h4>
                               <p style={{
                                 fontSize: '14px',
@@ -436,6 +436,32 @@ const HtmlReportViewer: React.FC<HtmlReportViewerProps> = ({ report, rules = [] 
                                 lineHeight: '1.5',
                                 margin: '0',
                                 backgroundColor: '#FEF2F2',
+                                padding: '0.75rem',
+                                borderRadius: '6px',
+                                border: '1px solid #FECACA'
+                              }}>
+                                {bug.categories}
+                              </p>
+                            </div>
+
+                            {/* Issue */}
+                            <div style={{ marginBottom: '1rem' }}>
+                              <h4 style={{
+                                fontSize: '14px',
+                                fontWeight: '600',
+                                color: '#e26834',
+                                marginBottom: '0.5rem',
+                                textTransform: 'uppercase',
+                                letterSpacing: '0.5px'
+                              }}>
+                                Bug Description
+                              </h4>
+                              <p style={{
+                                fontSize: '14px',
+                                color: '#374151',
+                                lineHeight: '1.5',
+                                margin: '0',
+                                backgroundColor: '#f5f3f2',
                                 padding: '0.75rem',
                                 borderRadius: '6px',
                                 border: '1px solid #FECACA'

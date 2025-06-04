@@ -27,6 +27,7 @@ export interface Bug {
   description: string;
   location: string;
   severity: 'High' | 'Medium' | 'Low';
+  categories: string;
   recommendation: string;
 }
 
