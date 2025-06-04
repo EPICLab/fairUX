@@ -1,22 +1,23 @@
-Rule ID,Rule Name,Facet,Description
-DR1,"Task entry points must display all prerequisites (time estimates, system requirements, permissions needed) before any action buttons","Information Processing, Risk Aversion","Violation: Upload button with requirements shown after clicking
-Solution: Prerequisites listed before upload button: Time needed: 10 mins, Requires: Admin access, Supported formats: PDF"
-DR2,"Each task description must contain four components: what (definition), why (purpose), how (steps), when (timing/schedule)","Information Processing, Learning Style","Violation: ""Submit your documents""
-Solution: What: Submit identity proof, Why: Required for verification, How: Upload passport or license and When: Within 7 days"
-DR3,"When multiple methods exist for a task, each method must have its effort level and benefits clearly stated like Time required, Effort level, Technical expertise needed, Security implications, etc","Risk Aversion, Motivations","Solution:
+Rule ID,Rule Name,Facet,Description,Bug_Categories
+DR1,"Each task description must contain five components: what (definition), why (purpose), how (steps), when (timing/schedule/time estimates), and system/access requirements (permissions) before any action","Information Processing, Learning Style","Violation: ""Submit your documents""
+Solution: What: Submit identity proof, Why: Required for verification, How: Upload passport or license and When: Within 7 days",Lack of guidance about task and/or data usage
+DR2,All actionable UI elements must be clearly marked/have visual affordance,"Computer self-efficacy, Information Processing","Violation: A page label ""Next"" appears as plain body text; users don't realise it is a link.
+Solution: Style ""Next"" as a raised button with contrasting colour, right-arrow icon, hover state, and focus outline so its clickability is unmistakable.",Lack of guidance about specific features; Unclear action requirements - obscure UI
+DR3,"When multiple methods or UI affordance exist for a task, each method must have its effort level and benefits clearly stated like Time required, Effort level, Technical expertise needed, Security implications, etc","Risk Aversion, Motivations","Solution:
 Method 1: Quick setup (5 minutes, basic features)
-Method 2: Advanced setup (30 minutes, all features)"
-DR4,"Multi-step processes must maintain a progress tracker which shows the current position, total steps, and next action","Learning Style, Information Processing",Solution: Step 2 of 5: Enter Personal Details (Next: Upload Documents)
-DR5,"When multiple tasks are presented, their dependencies must be explicitly shown like visual connection lines, prerequisite flags, blocking indicators, Timeline connections etc","Information Processing, Learning Style",Solution: Complete profile setup (required before accessing home/dashboard)
+Method 2: Advanced setup (30 minutes, all features)",Lack of guidance about task; Unclear action requirements - redundant repeat
+DR4,"Multi-step processes must maintain a progress tracker which shows the current position, total steps, and next action","Learning Style, Information Processing",Solution: Step 2 of 5: Enter Personal Details (Next: Upload Documents),Lack of guidance
+DR5,"When multiple tasks are presented, their dependencies must be explicitly shown like visual connection lines, prerequisite flags, blocking indicators, Timeline connections etc","Information Processing, Learning Style",Solution: Complete profile setup (required before accessing home/dashboard),Lack of guidance about task
 DR6,The same concept must be referred to consistently using the same term throughout the interface,"Learning Style, Computer Self-Efficacy","Violation: Using ""profile"" in one place and ""account"" in another for same concept
-Violation: Using ""submit"" on one form but ""send"" on another"
+Violation: Using ""submit"" on one form but ""send"" on another",Lack of internal consistency
 DR7,"Error messages must include three components: (1) what went wrong, (2) why it happened, and (3) how to fix it","Computer Self-Efficacy, Risk Aversion","Violation : ""Login failed"" (but why and how)
 Solution: ""Login failed because the password is incorrect. 
-Please try again or click 'Forgot Password' to reset."""
+Please try again or click 'Forgot Password' to reset.""",Error messages not tied to action and what to do next
 DR8,Potentially risky actions must clearly indicate consequences and recovery options before execution,"Risk Aversion, Information Processing","Violation: Delete button without consequence warning
-Solution: Warning: You cannot go back once it's deleted "
-DR9,Complex information must be structured in progressive levels with clear expansion mechanisms,"Information Processing, Motivations","Violation : Presenting all information at once without layering
-Solution: Basic overview or important info with expandable sections for details"
-DR10,Post-action feedback must include clear indication of next possible steps,"Computer Self-Efficacy, Learning Style",Profile updated successfully. View your profile / continue editing / Go to Home.
+Solution: Warning: You cannot go back once it's deleted ",Error messages - no warning about error prone conditions
+DR9,Complex or dense content should be layered with clear expansion mechanisms for additional details,"Information Processing, Motivations","Violation : Presenting all information at once without layering
+Solution: Basic overview or important info with expandable sections for details",Unclear action requirements - clutter/overwhelming
+DR10,Post-action feedback must include clear indication of current state/task and next possible steps,"Computer Self-Efficacy, Learning Style",Profile updated successfully. View your profile / continue editing / Go to Home.,Lack of guidance about task; Unexpected screen/output
 DR11,Any request for user data must be accompanied by a clear explanation of its purpose and usage,"Risk Aversion, Computer Self-Efficacy","Violation : A form input asking phone number
-Solution: A question mark icon with a tooltip saying ""Required for two-factor authentication to secure your account"""
+Solution: A question mark icon with a tooltip saying ""Required for two-factor authentication to secure your account""",Lack of guidance about task; 
+DR12,"System must provide immediate, persistent, and contextual feedback to indicate current status/outcome","Risk Aversion, Computer Self-Efficacy","Violation: After pressing ""Save"", the screen shows no change for several seconds; Abi wonders whether her data was stored. Solution: Immediately show a small anchored banner: ""SavingÉ"" that switches to ""All changes saved"" and remains until the next edit.",Forced waiting period

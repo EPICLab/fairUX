@@ -18,6 +18,7 @@ CORS(app, origins="*", supports_credentials=True)
 UPLOAD_FOLDER = '/Users/rudrajit/Documents/fairUX/server/images/screenshots'
 REPORT_FOLDER = '/Users/rudrajit/Documents/fairUX/server/reports'
 RULES_CSV = 'Decision Rules.csv'  # Path to your rules CSV file
+persona_id = 'ABI' # Default persona, can be overridden by request
 
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 os.makedirs(REPORT_FOLDER, exist_ok=True)
@@ -85,6 +86,9 @@ def analyze_images():
     
     persona_name = json.loads(request.form.get('persona')).get('name')
     session_id = str(uuid.uuid4())
+
+    global persona_id    
+    persona_id = persona_name.upper()
     
     try:
         # Generate report
@@ -138,7 +142,9 @@ def get_rules():
     """Serve the decision rules for frontend display"""
     try:
         import pandas as pd
-        rules_df = pd.read_csv(RULES_CSV)
+        rules_file = f"{persona_id}_{RULES_CSV}"
+        rules_df = pd.read_csv(rules_file)
+        print("Reading rules from CSV file:", rules_file)
         rules_data = rules_df.to_dict('records')
         return jsonify(rules_data)
     except Exception as e:

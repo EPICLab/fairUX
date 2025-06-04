@@ -79,7 +79,7 @@ class InclusivityPipeline:
             return self.get_abi_description()
         elif persona == "TIM":
             return self.get_tim_description()
-        return get_abi_description()
+        return self.get_abi_description()
 
     def generate_rules_analysis(self, rules: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         """Generate comprehensive analysis for all rules at once"""
@@ -192,7 +192,9 @@ class InclusivityPipeline:
             """
             cache_key = create_hash(prompt, image_path)
             cached_analysis = self.cache_client.get_cached_data(cache_key, 'screenshot_analysis')
+            
             if cached_analysis:
+                print(f"If cache block in analyze function: {image_filename}")
                 return cached_analysis
 
             response = self.bedrock_client.call_claude(

@@ -1,22 +1,22 @@
-Rule ID,Rule Name,Facet,Description
+Rule ID,Rule Name,Facet,Description,Bug_Categories
 DR1,"When task description includes additional information, it should allow exploration of optional features or insights, via expandable sections or tooltips.","Information Processing, Learning Style","""Violation: Task form hides advanced toggles entirely.
- Solution: Include 'Advanced Options' dropdown with tooltips."""
+ Solution: Include 'Advanced Options' dropdown with tooltips.""",Lack of guidance about task and/or data usage
 DR2,"When multiple methods exist, default to the most efficient and clearly label alternatives as optional for advanced use.","Information Processing, Motivations","""Violation: 'Choose Quick or Advanced Setup' without further context.
- Solution: 'Quick Setup (5 min, standard) | Advanced Setup (customizable)'"""
+ Solution: 'Quick Setup (5 min, standard) | Advanced Setup (customizable)'""",Lack of guidance about specific features; Unclear action requirements - obscure UI
 DR3,"Multi-step processes must show the current position and total steps, with optional step skipping if task order is flexible.","Computer Self-Efficacy, Information Processing","""Violation: User is forced through steps in order even if step 3 could be done first.
- Solution: Show steps with option to skip/flex order."""
+ Solution: Show steps with option to skip/flex order.""",Lack of guidance about task; Unclear action requirements - redundant repeat
 DR4,"When multiple tasks are presented, their dependencies must be explicitly shown like visual connection lines, prerequisite flags, blocking indicators, Timeline connections etc","Information Processing, Learning Style","""Violation: All tasks shown equally without guidance.
- Solution: Highlight 'Start Here' path, with other paths accessible via toggles."""
+ Solution: Highlight 'Start Here' path, with other paths accessible via toggles.""",Lack of guidance
 DR5,The same concept must be referred to consistently using the same term throughout the interface,"Information Processing, Learning Style","""Violation: Same label means different things in different screens.
- Solution: Use hover cards that explain the label in each context."""
+ Solution: Use hover cards that explain the label in each context.""",Lack of guidance about task
 DR6,"Error messages must include a short summary and an optional ""details"" link to view causes, error traces, and potential fixes.","Computer Self-Efficacy, Information Processing","""Violation: Generic 'Error occurred'.
- Solution: 'Invalid file format. See details [link] for supported types.'"""
+ Solution: 'Invalid file format. See details [link] for supported types.'""",Lack of internal consistency
 DR7,"Risky actions must default to safe settings, while providing a clear option to adjust or override.","Risk Aversion, Computer Self-Efficacy","""Violation: 'Delete permanently?' without context.
- Solution: Default to archive, with 'Delete immediately (irreversible)' option."""
+ Solution: Default to archive, with 'Delete immediately (irreversible)' option.""",Error messages not tied to action and what to do next
 DR8,"Complex or dense content should be layered. Show essential content first, with 'Learn More' or expandable details for selective exploration.","Information Processing, Learning Style","""Violation: Dense settings panel with no structure.
- Solution: Use sections with 'Learn More' toggles for advanced controls."""
+ Solution: Use sections with 'Learn More' toggles for advanced controls.""",Error messages - no warning about error prone conditions
 DR9,"Post-action feedback must include a summary of what changed in the system, with links for further exploration for task completion.","Information Processing, Motivations","""Violation: After completing ID application, system just shows: ""Form submitted"".
 Solution: ""Application submitted. Your ID verification is now in progress. [Upload Supporting Documents] [Check Status] [Return to Home]""""
-"
+",Unclear action requirements - clutter/overwhelming
 DR10,"If user data is requested, show an on-demand explanation of its purpose or usage and whether it's required or optional.","Motivations, Computer Self-Efficacy","Violation: 'Email required' without reason.
- Solution: 'Email (?) (for notification alerts, optional)'"
+ Solution: 'Email (?) (for notification alerts, optional)'",Lack of guidance about task; Unexpected screen/output
