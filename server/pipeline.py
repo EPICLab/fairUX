@@ -312,7 +312,8 @@ class InclusivityPipeline:
             already = {}
             # Process each screenshot
             screenshots_dir = self.bedrock_client.IMAGES_PATH + screenshots_dir
-            for screenshot in os.listdir(screenshots_dir):
+            # print(sorted(os.listdir(screenshots_dir)))
+            for screenshot in sorted(os.listdir(screenshots_dir)):
                 if screenshot.lower().endswith(('.png', '.jpg', '.jpeg')):
                     screenshot_path = os.path.join(os.getcwd(), screenshots_dir, screenshot)
                     print(f"Processing screenshot: {screenshot_path}")
