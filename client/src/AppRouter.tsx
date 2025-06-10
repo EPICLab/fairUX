@@ -14,6 +14,7 @@ import ResultsScreen from './views/screens/ResultsScreen';
 
 // Import controllers
 import navigationController from './controllers/navigationController';
+import PersonaInfoScreen from './views/screens/PersonaInfoScreen';
 
 const AppRouter: React.FC = () => {
   const navigate = useNavigate();
@@ -26,6 +27,7 @@ const AppRouter: React.FC = () => {
   return (
     <Routes>
       <Route path="/" element={<HomeScreen />} />
+      <Route path="/persona-info" element={<PersonaInfoScreen />} />
       <Route path="/upload" element={<UploadScreen />} />
       <Route path="/preview" element={<PreviewScreen />} />
       <Route path="/select-persona" element={<SelectPersonaScreen />} />

@@ -21,8 +21,7 @@ const Header: React.FC = () => {
             window.location.href = "/";
           }}>Home</Link>
           <div className="flex items-center text-gray-700 hover:text-blue-600 cursor-pointer">
-            <span>Personas</span>
-            <ChevronDown className="ml-1 h-4 w-4" />
+            <Link to="/persona-info" className="text-gray-700 hover:text-blue-600">Personas</Link>
           </div>
         </nav>
       </div>

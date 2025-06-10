@@ -35,7 +35,7 @@ export const usePersonaStore = create<PersonaState>((set, get) => ({
       {
         id: '1',
         name: 'Abi',
-        avatar: '/assets/personas/abi.svg',
+        avatar: '/assets/personas/abi.png',
         descriptionItems: [
           {
             title: 'Motivations',
@@ -69,7 +69,7 @@ export const usePersonaStore = create<PersonaState>((set, get) => ({
       {
         id: '2',
         name: 'Tim',
-        avatar: '/assets/personas/tim.svg',
+        avatar: '/assets/personas/tim.png',
         descriptionItems: [
           {
             title: 'Motivations',
