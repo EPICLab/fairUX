@@ -9,10 +9,11 @@ import os
 
 
 LLM_MODELS = {
-    "LLAMA": "us.meta.llama3-2-3b-instruct-v1:0",
-    "CLAUDE-3.5": "anthropic.claude-3-5-sonnet-20241022-v2:0",
-    "CLAUDE-3.7": "anthropic.claude-3-7-sonnet-20250219-v1:0"
+    "LLAMA-3": "us.meta.llama3-2-3b-[xyz]",
+    "CLAUDE-3.5": "anthropic.claude-3-5-sonnet-[xyz]-v[x]:0",
+    "CLAUDE-3.7": "anthropic.claude-3-7-sonnet-[xyz]-v[x]:0"
 }
+
 IMAGE_DIMENSION_LIMIT = 1024
 
 class BedrockClient:

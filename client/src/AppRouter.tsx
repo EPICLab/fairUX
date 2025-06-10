@@ -9,7 +9,6 @@ import UploadScreen from './views/screens/UploadScreen';
 import PreviewScreen from './views/screens/PreviewScreen';
 import SelectPersonaScreen from './views/screens/SelectPersonaScreen';
 import PersonaDetailsScreen from './views/screens/PersonaDetailsScreen';
-import ReviewScreen from './views/screens/ReviewScreen';  // New import
 import ResultsScreen from './views/screens/ResultsScreen';
 
 // Import controllers
@@ -32,7 +31,6 @@ const AppRouter: React.FC = () => {
       <Route path="/preview" element={<PreviewScreen />} />
       <Route path="/select-persona" element={<SelectPersonaScreen />} />
       <Route path="/persona-details" element={<PersonaDetailsScreen />} />
-      <Route path="/review" element={<ReviewScreen />} />  {/* New route */}
       <Route path="/results" element={<ResultsScreen />} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
