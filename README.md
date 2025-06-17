@@ -3,7 +3,7 @@
 **fairUX** is a system that detects cognitive-inclusivity bugs in user interfaces using AI-powered reasoning grounded in Inclusive Design Research
 
 
-## 🖥️ Server Setup
+## 🖥️ Local Server Setup
 
 1. Navigate to the server directory:
    ```bash
