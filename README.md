@@ -42,6 +42,9 @@ Clone the repository running the command:
 git clone https://github.com/EPICLab/fairUX.git
 ```
 
+
+---
+
 ## Step 3 - LLM Configuration (in `server/BedrockClient.py`)
 
 Update the following:
@@ -56,7 +59,7 @@ LLM_MODELS = {
 
 Here [xyz] are placeholders. To use these models, you **must provide your own AWS credentials (i.e. model IDs)** and ensure your account is authorized for the corresponding Bedrock models. 
 
-### GPT Model Family Invocation via OpenAI API [If you wish]
+### GPT Model Family Invocation via OpenAI API [Optional]
 
 As an alternative to Amazon Bedrock, you can configure this system to use OpenAI’s GPT models via the OpenAI API.
 
@@ -105,6 +108,9 @@ print(completion.choices[0].message.content)
 
 Check out OpenAI platform for more details: https://platform.openai.com/docs/guides/text?api-mode=chat
 
+
+
+---
 
 ## Step 4 -  Local Server Setup
 
