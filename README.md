@@ -4,7 +4,7 @@
 
 AWS Bedrock and AWS CLI setup needs to be done before running the server and the client locally.
 
-## ☁️ AWS Bedrock & CLI Setup
+## Step 1 - AWS Bedrock & CLI Setup
 
 To use LLMs like Claude or LLaMA via Amazon Bedrock, you **must configure AWS CLI** and **use your own access tokens**.
 
@@ -33,7 +33,7 @@ Make sure your AWS account has access to Amazon Bedrock and has requested access
 
 ---
 
-### Install git and clone the repository (maybe this is already set on your machine)
+## Step 2 - Install git and clone the repository (maybe this is already set on your machine)
 
 Follow the official instructions to install git based on the operating system you have: https://git-scm.com/downloads
 
@@ -42,7 +42,9 @@ Clone the repository running the command:
 git clone https://github.com/EPICLab/fairUX.git
 ```
 
-## 🧠 LLM Configuration (in `server/BedrockClient.py`)
+## Step 3 - LLM Configuration (in `server/BedrockClient.py`)
+
+Update the following:
 
 ```python
 LLM_MODELS = {
@@ -54,7 +56,7 @@ LLM_MODELS = {
 
 Here [xyz] are placeholders. To use these models, you **must provide your own AWS credentials (i.e. model IDs)** and ensure your account is authorized for the corresponding Bedrock models. 
 
-## 🧠 GPT Model Family Invocation via OpenAI API
+### GPT Model Family Invocation via OpenAI API [If you wish]
 
 As an alternative to Amazon Bedrock, you can configure this system to use OpenAI’s GPT models via the OpenAI API.
 
@@ -104,7 +106,7 @@ print(completion.choices[0].message.content)
 Check out OpenAI platform for more details: https://platform.openai.com/docs/guides/text?api-mode=chat
 
 
-## 🖥️ Local Server Setup
+## Step 4 -  Local Server Setup
 
 1. Navigate to the server directory:
    ```bash
@@ -129,7 +131,7 @@ Check out OpenAI platform for more details: https://platform.openai.com/docs/gui
 
 ---
 
-## 🌐 Client Setup
+## Step 5 -  Client Setup
 
 1. Navigate to the client directory:
    ```bash
