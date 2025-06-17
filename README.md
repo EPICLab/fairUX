@@ -2,58 +2,7 @@
 
 **fairUX** is a system that detects cognitive-inclusivity bugs in user interfaces using AI-powered reasoning grounded in Inclusive Design Research
 
-
-## 🖥️ Local Server Setup
-
-1. Navigate to the server directory:
-   ```bash
-   cd server
-   ```
-
-2. Create and activate a virtual environment:
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate   # On Windows: venv\Scripts\activate
-   ```
-
-3. Install Python dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. Start the server:
-   ```bash
-   python app.py
-   ```
-
----
-
-## 🌐 Client Setup
-
-1. Navigate to the client directory:
-   ```bash
-   cd client
-   ```
-
-2. Ensure Node.js and npm are installed.  
-   If not, install from: https://nodejs.org/ 
-
-3. Install required packages:
-   ```bash
-   npm install
-   ```
-
-4. Add UUID types for development:
-   ```bash
-   npm i --save-dev @types/uuid
-   ```
-
-5. Start the frontend development server:
-   ```bash
-   npm start
-   ```
-
----
+AWS Bedrock and AWS CLI setup needs to be done before running the server and the client locally.
 
 ## ☁️ AWS Bedrock & CLI Setup
 
@@ -144,6 +93,59 @@ print(completion.choices[0].message.content)
 ```
 
 Check out OpenAI platform for more details: https://platform.openai.com/docs/guides/text?api-mode=chat
+
+
+## 🖥️ Local Server Setup
+
+1. Navigate to the server directory:
+   ```bash
+   cd server
+   ```
+
+2. Create and activate a virtual environment:
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate   # On Windows: venv\Scripts\activate
+   ```
+
+3. Install Python dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. Start the server:
+   ```bash
+   python app.py
+   ```
+
+---
+
+## 🌐 Client Setup
+
+1. Navigate to the client directory:
+   ```bash
+   cd client
+   ```
+
+2. Ensure Node.js and npm are installed.  
+   If not, install from: https://nodejs.org/ 
+
+3. Install required packages:
+   ```bash
+   npm install
+   ```
+
+4. Add UUID types for development:
+   ```bash
+   npm i --save-dev @types/uuid
+   ```
+
+5. Start the frontend development server:
+   ```bash
+   npm start
+   ```
+
+---
 
 ## ⚠️ Note: 
 
