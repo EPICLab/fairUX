@@ -40,6 +40,7 @@ Follow the official instructions to install git based on the operating system yo
 Clone the repository running the command:
 ```
 git clone https://github.com/EPICLab/fairUX.git
+cd fairUX
 ```
 
 
