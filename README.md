@@ -33,6 +33,15 @@ Make sure your AWS account has access to Amazon Bedrock and has requested access
 
 ---
 
+### Install git and clone the repository (maybe this is already set on your machine)
+
+Follow the official instructions to install git based on the operating system you have: https://git-scm.com/downloads
+
+Clone the repository running the command:
+```
+git clone https://github.com/EPICLab/fairUX.git
+```
+
 ## 🧠 LLM Configuration (in `server/BedrockClient.py`)
 
 ```python
