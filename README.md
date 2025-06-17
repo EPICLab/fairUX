@@ -108,6 +108,11 @@ print(completion.choices[0].message.content)
 
 Check out OpenAI platform for more details: https://platform.openai.com/docs/guides/text?api-mode=chat
 
+## ⚠️ Note: 
+
+If you choose to use GPT models via the OpenAI API instead of Bedrock, you **might need to adjust how responses are parsed** in the reasoning pipeline. OpenAI's reasoning model response format may differ from Bedrock's.
+
+For all models that are natively available through Bedrock (e.g., Claude, LLaMA), no changes are needed.
 
 
 ---
@@ -164,10 +169,5 @@ Check out OpenAI platform for more details: https://platform.openai.com/docs/gui
 
 ---
 
-## ⚠️ Note: 
-
-If you choose to use GPT models via the OpenAI API instead of Bedrock, you **might need to adjust how responses are parsed** in the reasoning pipeline. OpenAI's reasoning model response format may differ from Bedrock's.
-
-For all models that are natively available through Bedrock (e.g., Claude, LLaMA), no changes are needed.
 
 
