@@ -46,9 +46,8 @@ cd fairUX
 
 ---
 
-## Step 3 - LLM Configuration (in `server/BedrockClient.py`)
-
-Update the following:
+## Step 3 - LLM Configuration
+1) If using Bedrock: Update the following in `server/BedrockClient.py`):
 
 ```python
 LLM_MODELS = {
@@ -60,10 +59,11 @@ LLM_MODELS = {
 
 Here [xyz] are placeholders. To use these models, you **must provide your own AWS credentials (i.e. model IDs)** and ensure your account is authorized for the corresponding Bedrock models. 
 
-## ⚠️ Note: GPT Model Family Invocation via OpenAI API [Optional] 
-If you choose to use GPT models via the OpenAI API instead of Bedrock, you **might need to adjust how responses are parsed** in the reasoning pipeline. OpenAI's reasoning model response format may differ from Bedrock's. For all models that are natively available through Bedrock (e.g., Claude, LLaMA), no changes are needed.
-
+2) **[Optional]** You can use GPT Model Family Invocation via OpenAI API **[Optional]** 
 As an alternative to Amazon Bedrock, you can configure this system to use OpenAI’s GPT models via the OpenAI API.
+
+### ⚠️ Important Note:
+If you choose to use GPT models via the OpenAI API instead of Bedrock, you **might need to adjust how responses are parsed** in the reasoning pipeline. OpenAI's reasoning model response format may differ from Bedrock's. For all models that are natively available through Bedrock (e.g., Claude, LLaMA), no changes are needed.
 
 - Install OpenAI Python SDK in your virtual environment 
   ```bash
@@ -160,7 +160,10 @@ Check out OpenAI platform for more details: https://platform.openai.com/docs/gui
    ```bash
    npm start
    ```
-
+6. You are all set. You can access the tool in your browser:
+  ```bash
+    http://localhost:3000/
+   ```
 ---
 
 
