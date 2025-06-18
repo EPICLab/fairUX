@@ -60,7 +60,8 @@ LLM_MODELS = {
 
 Here [xyz] are placeholders. To use these models, you **must provide your own AWS credentials (i.e. model IDs)** and ensure your account is authorized for the corresponding Bedrock models. 
 
-### GPT Model Family Invocation via OpenAI API [Optional]
+## ⚠️ Note: GPT Model Family Invocation via OpenAI API [Optional] 
+If you choose to use GPT models via the OpenAI API instead of Bedrock, you **might need to adjust how responses are parsed** in the reasoning pipeline. OpenAI's reasoning model response format may differ from Bedrock's. For all models that are natively available through Bedrock (e.g., Claude, LLaMA), no changes are needed.
 
 As an alternative to Amazon Bedrock, you can configure this system to use OpenAI’s GPT models via the OpenAI API.
 
@@ -109,14 +110,6 @@ print(completion.choices[0].message.content)
 
 Check out OpenAI platform for more details: https://platform.openai.com/docs/guides/text?api-mode=chat
 
-## ⚠️ Note: 
-
-If you choose to use GPT models via the OpenAI API instead of Bedrock, you **might need to adjust how responses are parsed** in the reasoning pipeline. OpenAI's reasoning model response format may differ from Bedrock's.
-
-For all models that are natively available through Bedrock (e.g., Claude, LLaMA), no changes are needed.
-
-
----
 
 ## Step 4 -  Local Server Setup
 
