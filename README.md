@@ -121,7 +121,7 @@ Check out OpenAI platform for more details: https://platform.openai.com/docs/gui
 2. Create and activate a virtual environment:
    ```
     python3.11 -m venv venv_py311
-    source venv_py311/bin/activate   # On Windows: venv\Scripts\activate
+    source venv_py311/bin/activate   # On Windows: venv_py311\Scripts\activate
    ```
 
 3. Install Python dependencies:
