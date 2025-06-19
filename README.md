@@ -119,13 +119,13 @@ Check out OpenAI platform for more details: https://platform.openai.com/docs/gui
    ```
 
 2. Create and activate a virtual environment:
-   ```bash
-python3.11 -m venv venv_py311
-source venv_py311/bin/activate   # On Windows: venv\Scripts\activate
+   ```
+    python3.11 -m venv venv_py311
+    source venv_py311/bin/activate   # On Windows: venv\Scripts\activate
    ```
 
 3. Install Python dependencies:
-   ```bash
+   ```
    pip3 install -r requirements.txt
    python3 -m playwright install
    ```
@@ -136,7 +136,7 @@ source venv_py311/bin/activate   # On Windows: venv\Scripts\activate
      ```  
 5. Start the server:
    ```bash
-   python app.py
+   python3 app.py
    ```
 
 ---
