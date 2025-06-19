@@ -120,16 +120,21 @@ Check out OpenAI platform for more details: https://platform.openai.com/docs/gui
 
 2. Create and activate a virtual environment:
    ```bash
-   python3 -m venv venv
-   source venv/bin/activate   # On Windows: venv\Scripts\activate
+python3.11 -m venv venv_py311
+source venv_py311/bin/activate   # On Windows: venv\Scripts\activate
    ```
 
 3. Install Python dependencies:
    ```bash
-   pip install -r requirements.txt
+   pip3 install -r requirements.txt
+   python3 -m playwright install
    ```
-
-4. Start the server:
+4. Update path locations in `server/app.py`
+     ```
+     UPLOAD_FOLDER = '<path_to_project_directory>/fairUX/server/images/screenshots'
+     REPORT_FOLDER = '<path_to_project_directory>/fairUX/server/reports'
+     ```  
+5. Start the server:
    ```bash
    python app.py
    ```
